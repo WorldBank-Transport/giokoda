@@ -1,0 +1,22 @@
+__pycache__/
+*.py[cod]
+.Python
+env/
+.env
+build/
+develop-eggs/
+dist/
+eggs/
+lib/
+lib64/
+var/
+*.egg-info/
+.installed.cfg
+*.egg
+
+## generic files to ignore
+*~
+*.lock
+*.DS_Store
+*.swp
+*.out
