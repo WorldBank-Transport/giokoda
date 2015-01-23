@@ -16,7 +16,6 @@ Install the module and its dependancies
 ::
 
     cd giokoda
-    pip install -r requirements.txt
     python setup.py install
 
 
