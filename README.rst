@@ -90,6 +90,10 @@ Example::
 
     python geocode_csv.py /input/file.csv
 
+or including a api key::
+
+    python geocode_csv.py --service <SERVICE-NAME> --params '{"api_key": "<YOUR-API-KEY>"}' /input/file.csv
+
 General usage::
 
     geocode_csv.py [-h] [-o OUTPUT] [-s SERVICE] [-c COLUMN] [-p PARAMS] input
@@ -109,7 +113,9 @@ Required argument
         Full path to output file
 
     `-s SERVICE, --service SERVICE`
-        Geocoding service name
+        Geocoding service name, example arcgis, baidu, google, googlev3, geocoderdotus,
+        geonames, yahoo, placefinder, opencage, openmapquest, mapquest, liveaddress,
+        navidata, nominatim, geocodefarm, what3words, yandex and ignfrance
 
     `-c COLUMN, --column COLUMN`
         Name of a column containing strings to geocode
