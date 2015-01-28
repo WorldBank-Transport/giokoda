@@ -21,11 +21,21 @@ if __name__ == '__main__':
         '-p', '--params', type=str,
         help='Keyword arguments for geocoding service initialization \
         presented as json object')
+    parser.add_argument(
+        '-d', '--delimiter', type=str,
+        help='A one-character string used to separate fields in a csv file')
+    parser.add_argument(
+        '-q', '--quotechar', type=str,
+        help= "A one-character string used to\
+        quote fields containing special characters in a csv file, such as\
+        the delimiter or quotechar, or which contain new-line characters")
     args = parser.parse_args()
     kwargs = {}
     if args.output: kwargs['outfile'] = args.output
     if args.service: kwargs['service'] = args.service
     if args.column: kwargs['query_columns'] = args.column
+    if args.delimiter: kwargs['delimiter'] = args.delimiter
+    if args.quotechar: kwargs['quotechar'] = args.quotechar
     if args.params:
         try:
             params = json.loads(args.params)

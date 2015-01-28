@@ -71,6 +71,13 @@ Optional keyword arguments (`**kwargs`)
     `service_kwargs`, *(dict)*
         Optional keyword arguments for initialization of geocoding service.
 
+    `delimiter` *(str)*: default: `','`, A one-character string used to
+    separate fields.
+
+    `quotechar` *(str)*: default: `'"'`, A one-character string used to
+    quote fields containing special characters in a csv file, such as
+    the delimiter or quotechar, or which contain new-line characters.
+
 Return
 ------
 
@@ -120,10 +127,18 @@ Required argument
         geonames, yahoo, placefinder, opencage, openmapquest, mapquest, liveaddress,
         navidata, nominatim, geocodefarm, what3words, yandex and ignfrance
 
-    `-c COLUMN, --column COLUMN`
+    `-c [COLUMN [COLUMN ...]], --column [COLUMN [COLUMN ...]]`
         Name(s) for column(s) containing text content to geocode.
         Multiple column names should be separated by white space.
 
     `-p PARAMS, --params PARAMS`
         Keyword arguments for geocoding service initialization presented as
         json object
+
+    `-d DELIMITER, --delimiter DELIMITER`
+        A one-character string used to separate fields in a csv file
+
+    `-q QUOTECHAR, --quotechar QUOTECHAR`
+        A one-character string used to
+        quote fields containing special characters in a csv file, such as
+        the delimiter or quotechar, or which contain new-line characters.

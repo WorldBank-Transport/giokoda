@@ -45,6 +45,13 @@ def geocode_csv(infile, **kwargs):
       `service_kwargs` *(dict)*: Optional keyword arguments for initialization
       of geocoding service.
 
+      `delimiter` *(str)*: default: `','`, A one-character string used to
+      separate fields in a csv file.
+
+      `quotechar` *(str)*: default: `'"'`, A one-character string used to
+      quote fields containing special characters in a csv file, such as
+      the delimiter or quotechar, or which contain new-line characters.
+
     **Returns:**
       A dictionary of total success and error count::
       
@@ -67,6 +74,8 @@ def geocode_csv(infile, **kwargs):
         query_columns.append('name')
     service_kwargs = GEOCODERS.get(service, GEOCODERS[DEFAULT_GEOCODER])
     service_kwargs.update(kwargs.get('service_kwargs', {}))
+    delimiter = kwargs.get('delimiter', ',')
+    quotechar = kwargs.get('quotechar', '"')
     # Instanciate geocoder service
     api_key = service_kwargs.pop('api_key', None)
     Geocoder = get_geocoder_for_service(service)
@@ -75,9 +84,11 @@ def geocode_csv(infile, **kwargs):
     else:
         geocoder = Geocoder(**service_kwargs)
     # Read csv 
-    incsv = csv.DictReader(open(infile, 'r'))
+    incsv = csv.DictReader(open(infile, 'r'), delimiter=delimiter,
+                           quotechar=quotechar)
     # Initialize csv writer
-    writer = csv.writer(open(outfile, 'w'))
+    writer = csv.writer(open(outfile, 'w'), delimiter=delimiter,
+                        quotechar=quotechar)
     # Geocode each row
     first_row = True
     successful = 0
