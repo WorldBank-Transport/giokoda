@@ -65,6 +65,9 @@ Optional keyword arguments (`**kwargs`)
     `query_column`, *(str)*, default: `'name'`
         Name of a column containg text to geocode.
 
+    `query_columns` *(list)*: default: `[]`. A list of a columns
+    to be combined in order to produce a text to geocode.
+
     `service_kwargs`, *(dict)*
         Optional keyword arguments for initialization of geocoding service.
 
@@ -118,7 +121,8 @@ Required argument
         navidata, nominatim, geocodefarm, what3words, yandex and ignfrance
 
     `-c COLUMN, --column COLUMN`
-        Name of a column containing strings to geocode
+        Name(s) for column(s) containing text content to geocode.
+        Multiple column names should be separated by white space.
 
     `-p PARAMS, --params PARAMS`
         Keyword arguments for geocoding service initialization presented as

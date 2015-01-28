@@ -14,8 +14,9 @@ if __name__ == '__main__':
     parser.add_argument('-s', '--service', help='Geocoding service name',
                         type=str)
     parser.add_argument(
-        '-c', '--column', type=str,
-        help='Name of a column containing strings to geocode')
+        '-c', '--column', nargs='*', type=str, 
+        help='Names for columns containing text content to geocode. \
+        Multiple column names should be separated by white space.')
     parser.add_argument(
         '-p', '--params', type=str,
         help='Keyword arguments for geocoding service initialization \
@@ -24,7 +25,7 @@ if __name__ == '__main__':
     kwargs = {}
     if args.output: kwargs['outfile'] = args.output
     if args.service: kwargs['service'] = args.service
-    if args.column: kwargs['query_column'] = args.column
+    if args.column: kwargs['query_columns'] = args.column
     if args.params:
         try:
             params = json.loads(args.params)

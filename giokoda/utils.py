@@ -39,6 +39,9 @@ def geocode_csv(infile, **kwargs):
       `query_column` *(str)*: default: `'name'`. Name of a column containg text
       to geocode.
 
+      `query_columns` *(list)*: default: `[]`. A list of a columns
+      to be combined in order to produce a text to geocode.
+
       `service_kwargs` *(dict)*: Optional keyword arguments for initialization
       of geocoding service.
 
@@ -54,7 +57,14 @@ def geocode_csv(infile, **kwargs):
     # Collect parameters
     outfile = kwargs.get('outfile', '%s-geocoded.csv' %infile)
     service = kwargs.get('service', DEFAULT_GEOCODER)
-    query_column = kwargs.get('query_column', 'name')
+    query_column = kwargs.get('query_column')
+    query_columns = kwargs.get('query_columns', [])
+    if query_columns and not type(query_columns) == list:
+        raise TypeError('A value for `query_columns` must be a list')
+    if query_column:
+        query_columns.append(query_column)
+    elif not query_columns:
+        query_columns.append('name')
     service_kwargs = GEOCODERS.get(service, GEOCODERS[DEFAULT_GEOCODER])
     service_kwargs.update(kwargs.get('service_kwargs', {}))
     # Instanciate geocoder service
@@ -78,7 +88,12 @@ def geocode_csv(infile, **kwargs):
         for key,value in sorted(row.items()):
             sorted_row[key] = value
         try:
-            query = sorted_row.get(query_column)
+            query = []
+            for column in query_columns:
+                q = sorted_row.get(column)
+                if q:
+                    query.append(unicode(q, errors='ignore'))
+            query = ', '.join(query)
             if query:
                 location = geocoder.geocode(query)
                 if location and location.latitude and location.longitude:
