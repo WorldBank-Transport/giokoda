@@ -121,5 +121,5 @@ def geocode_csv(infile, **kwargs):
             writer.writerow(list(sorted_row.keys()))
             first_row = False
         # Write row
-        writer.writerow(sorted_row.values())
+        writer.writerow(list(sorted_row.values()))
     return {'total': total, 'success': successful, 'error': errors}
