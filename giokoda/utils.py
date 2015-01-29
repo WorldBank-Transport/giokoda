@@ -2,7 +2,7 @@ import sys
 import csv
 from pprint import pprint
 from geopy import geocoders, get_geocoder_for_service
-import settings
+from . import settings
 
 GEOCODERS = settings.GEOCODERS
 DEFAULT_GEOCODER = settings.DEFAULT_GEOCODER
