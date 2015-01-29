@@ -118,7 +118,7 @@ def geocode_csv(infile, **kwargs):
             pprint(sorted_row)
         if first_row:
             # write header
-            writer.writerow(sorted_row.keys())
+            writer.writerow(list(sorted_row.keys()))
             first_row = False
         # Write row
         writer.writerow(sorted_row.values())
