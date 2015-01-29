@@ -95,6 +95,7 @@ def geocode_csv(infile, **kwargs):
     total = 0
     errors = 0
     for row in incsv:
+        total += 1
         sorted_row = {'latitude': '', 'longitude': ''}
         for key,value in sorted(row.items()):
             sorted_row[key] = value
@@ -119,8 +120,6 @@ def geocode_csv(infile, **kwargs):
             # write header
             writer.writerow(sorted_row.keys())
             first_row = False
-        else:
-            total += 1
         # Write row
         writer.writerow(sorted_row.values())
     return {'total': total, 'success': successful, 'error': errors}
