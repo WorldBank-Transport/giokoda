@@ -104,7 +104,7 @@ def geocode_csv(infile, **kwargs):
             for column in query_columns:
                 q = sorted_row.get(column)
                 if q:
-                    query.append(unicode(q, errors='ignore'))
+                    query.append(q)
             query = ', '.join(query)
             if query:
                 location = geocoder.geocode(query)
