@@ -5,7 +5,16 @@ using various online geocoding service.
 Installation
 *************
 
-Download the source code
+Installation using pip
+======================
+
+::
+
+    pip install git+https://github.com/WorldBank-Transport/giokoda.git
+
+Installation from source
+========================
+Download the source code from github, Example 
 
 ::
 
@@ -25,7 +34,7 @@ Usage
 
 This utility can be used as a Python module or as a python script.
 
-Using the python module
+Using as python module
 =======================
 
 Basic example::
@@ -89,24 +98,22 @@ Return
         'error': 0
     }
 
-Using the script
-================
+Using an executable script
+==========================
 
-* Go to the directory containing the `geocode_csv.py` script.
-
-* Run the script using command line interface.
+* Run `geocode_csv` via command line interface.
 
 Example::
 
-    python geocode_csv.py /input/file.csv
+    geocode_csv /input/file.csv
 
 or including a api key::
 
-    python geocode_csv.py --service <SERVICE-NAME> --params '{"api_key": "<YOUR-API-KEY>"}' /input/file.csv
+    geocode_csv --service <SERVICE-NAME> --params '{"api_key": "<YOUR-API-KEY>"}' /input/file.csv
 
 General usage::
 
-    geocode_csv.py [-h] [-o OUTPUT] [-s SERVICE] [-c COLUMN] [-p PARAMS] input
+    geocode_csv [-h] [-o OUTPUT] [-s SERVICE] [-c COLUMN] [-p PARAMS] input
 
 Required argument
 ------------------

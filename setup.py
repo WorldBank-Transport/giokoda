@@ -22,6 +22,7 @@ setup(
     install_requires = [
         "geopy",
     ],
+    scripts=['geocode_csv'],
     classifiers=[
         "Intended Audience :: Developers",
         "Intended Audience :: Science/Research",
