@@ -5,8 +5,8 @@ using various online geocoding service.
 Installation
 *************
 
-Installation using pip
-======================
+Installation using `pip <https://pip.pypa.io>`_
+================================================
 
 ::
 
@@ -32,7 +32,7 @@ Install the module and its dependancies
 Usage
 ******
 
-This utility can be used as a Python module or as a python script.
+This utility can be used as a Python module or as an executable script.
 
 Using as python module
 =======================
