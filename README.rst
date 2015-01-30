@@ -39,8 +39,8 @@ Using as python module
 
 Basic example::
 
-    from giokoda.utils import geocode_csv
-    geocode_csv('input.csv')
+    import giokoda
+    giokoda.geocode_csv('input.csv')
 
 The above code will try to goecode the provided `'input.csv'` file and write
 its output to `'input.csv-geocoded.csv'`
