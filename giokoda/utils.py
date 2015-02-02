@@ -76,11 +76,26 @@ def geocode_csv(infile, **kwargs):
     service_kwargs.update(kwargs.get('service_kwargs', {}))
     delimiter = kwargs.get('delimiter', ',')
     quotechar = kwargs.get('quotechar', '"')
-    # Instanciate geocoder service
-    api_key = service_kwargs.pop('api_key', None)
+    # Get geocoder class
     Geocoder = get_geocoder_for_service(service)
-    if api_key:
-        geocoder = Geocoder(api_key, **service_kwargs)
+    # Try to catch mandatory arguments, usually these are for authentication.
+    # Instanciate geocoder
+    if 'api_key' in service_kwargs:
+        geocoder = Geocoder(service_kwargs.pop('api_key'), **service_kwargs)
+    elif 'username' in service_kwargs and 'password' in service_kwargs:
+        geocoder = Geocoder(username=service_kwargs.pop('username'),
+                            password=service_kwargs.pop('password'),
+                            **service_kwargs)
+    elif 'auth_id' in service_kwargs and 'auth_token' in service_kwargs:
+        geocoder = Geocoder(auth_id=service_kwargs.pop('auth_id'),
+                            auth_token=service_kwargs.pop('auth_token'),
+                            **service_kwargs)
+    elif 'consumer_key' in service_kwargs and \
+            'consumer_secret' in service_kwargs:
+        geocoder = Geocoder(
+            consumer_key=service_kwargs.pop('consumer_key'),
+            consumer_secret=service_kwargs.pop('consumer_secret'),
+            **service_kwargs)
     else:
         geocoder = Geocoder(**service_kwargs)
     # Read csv 
