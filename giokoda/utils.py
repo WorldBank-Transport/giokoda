@@ -62,8 +62,8 @@ def geocode_csv(infile, **kwargs):
         }
     """
     # Collect parameters
-    outfile = kwargs.get('outfile', '%s-geocoded.csv' %infile)
     service = kwargs.get('service', DEFAULT_GEOCODER)
+    outfile = kwargs.get('outfile', '%s-geocoded-%s.csv' %(infile, service))
     query_column = kwargs.get('query_column')
     query_columns = kwargs.get('query_columns', [])
     if query_columns and not type(query_columns) == list:
