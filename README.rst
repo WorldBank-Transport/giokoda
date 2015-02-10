@@ -10,7 +10,7 @@ Installation using `pip <https://pip.pypa.io>`_
 
 ::
 
-    pip install git+https://github.com/WorldBank-Transport/giokoda.git
+    pip install giokoda
 
 Installation from source
 ========================
