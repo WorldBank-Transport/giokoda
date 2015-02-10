@@ -20,7 +20,6 @@ setup(
     author='Emil',
     author_email='emil@tehamalab.com',
     url='https://pypi.python.org/pypi/giokoda',
-    download_url='https://github.com/WorldBank-Transport/giokoda/tarball/%s' %version,
     install_requires = ["geopy"],
     scripts=['geocode_csv'],
     license = 'Apache License, Version 2.0',
