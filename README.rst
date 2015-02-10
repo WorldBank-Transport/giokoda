@@ -14,7 +14,7 @@ Installation using `pip <https://pip.pypa.io>`_
 
 Installation from source
 ========================
-Download the source code from github, Example 
+Download the source code, Example 
 
 ::
 
