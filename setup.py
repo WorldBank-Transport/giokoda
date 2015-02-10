@@ -28,7 +28,7 @@ setup(
         "Intended Audience :: Science/Research",
         "Operating System :: OS Independent",
         "Programming Language :: Python",
-        "License :: OSI Approved :: Apache License, Version 2.0",
+        "License :: OSI Approved :: Apache Software License",
         "Topic :: Scientific/Engineering :: GIS",
         "Topic :: Software Development :: Libraries :: Python Modules",
         "Programming Language :: Python :: 2",
