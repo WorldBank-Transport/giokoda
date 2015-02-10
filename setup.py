@@ -17,12 +17,12 @@ setup(
     include_package_data=True,
     description='A utility for geocoding csv files.',
     long_description=README,
-    author='Emil Kimaryo',
-    author_email='emilrke@gmail.com',
-    install_requires = [
-        "geopy",
-    ],
+    author='Emil',
+    author_email='emil@tehamalab.com',
+    url='https://pypi.python.org/pypi/giokoda',
+    install_requires = ["geopy"],
     scripts=['geocode_csv'],
+    license = 'Apache License, Version 2.0',
     classifiers=[
         "Intended Audience :: Developers",
         "Intended Audience :: Science/Research",
